@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <title>shurikeygear管理</title>
+    <script src="../js/jquery-3.1.1.min.js"></script>
+    <script src="../js/bootstrap3.3.7/js/bootstrap.js"></script>
+    <link rel="stylesheet" href="../js/bootstrap3.3.7/css/bootstrap.css">
+    <link rel="stylesheet" href="../js/layui/css/layui.css">
+    <link rel="stylesheet" href="/css/navbar-bottom.css">
+    <script src="../js/layer/layer.js"></script>
+    <script src="../js/Login.js"></script>
+    <script src="../js/layui/layui.js"></script>
+</head>
+
+<body>
+	<div class="container-fluid">
+		<div class="row">
+			<!--头部标签一行12-->
+			<div class="col-md-12 col-sm-12 col-xs-12">
+				<div class="row" id="bg1">
+					<img src="../../img/login/login-background.png" id="bg1img" />
+					<form action="/user/UserLogin" id="loginform" method="post">
+						<div class="varmilo-loginposition " align="center">
+							<div class="varmilo-loginposition2">登录</div>
+						    <input type="text" placeholder="请输入您的帐号" name="username" autocomplete="off" class="username varmilo-loginposition3" id="username" />
+							<div class="varmilo-loginposition4">
+								<input type="password" placeholder="请输入您的密码" name="password" autocomplete="new-password" class="password varmilo-loginposition3" id="password" />
+							</div>
+							<div class="varmilo-loginposition8" id="tishi"></div>
+							<div class="varmilo-loginposition9">
+								<label>
+                                    <!--<input type="checkbox" name="passwordcheckbox" value="" />&nbsp;&nbsp;记住密码-->
+                                </label>
+							</div>
+							<div class="varmilo-loginposition10">
+								<button type="button" onclick="loginyanzheng()" name="button-login" class="varmilo-loginposition11 btn-danger">立即登录</button>
+							</div>
+						</div>
+					</form>
+				</div>
+            </div>
+		</div>
+	</div>
+
+<script>
+	window.onload = function(){
+		sessionStorage.setItem("username", "");
+	}
+	function loginyanzheng() {
+		var username = $("#username").val();
+		var password = $('#password').val();
+		if (username == "" || username == null) {
+		    $("#username").focus();
+			$('#tishi').html("<font color='red'><span class='glyphicon glyphicon-warning-sign'></span>帐号不能为空</font>");
+			return false;
+		} else if (password == "" || password == null) {
+		    $('#password').focus();
+			$('#tishi').html("<font color='red'><span class='glyphicon glyphicon-warning-sign'></span>密码不能为空</font>");
+			return false;
+		} else {
+		    $("#loginform").submit();
+// 			$.ajax({
+//                 type : "post", 
+//                 async : false,
+//                 url : 'http://www.shurikeygear.com/user/UserLogin', //要请求的地址
+//                 //参数
+//                 data : {
+//                     username : username,
+//                     password : password
+//                 },
+//                 success : function(data) {
+//                     if (data == "0") {
+//                         $('#tishi').html("<font color='red'><span class='glyphicon glyphicon-warning-sign'></span>登陆失败!</font>");
+//                         return;
+//                     }else if(data=="1"){
+// 						$('#tishi').html("<font color='green'><span class='glyphicon glyphicon-ok'></span>登陆成功!</font>");
+// 						layer.msg('<span style="color:green;">登录成功!</span>3秒后跳转至首页');
+// 						sessionStorage.setItem("username", username);
+// 						setTimeout(function(){
+// 							window.location.href = "index.html";
+// 							return;
+// 						}, 3000);
+						
+//                     }
+//                 },
+//                 Error : function(data){
+//                     console.log(data)
+//                 }
+//         	});
+		}
+	}
+	document.onkeydown = function (event) {
+        var e = event || window.event;
+        if (e && e.keyCode == 13) { //回车键的键值为13
+           loginyanzheng() //调用登录按钮的登录事件
+        }
+    }; 
+</script>
+</body>
+</html>

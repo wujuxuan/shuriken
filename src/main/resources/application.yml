@@ -1,0 +1,43 @@
+spring:
+#数据源配置
+  datasource:
+    username: shurikeygear
+    password: Abc1234!
+    url: jdbc:mysql://47.242.200.185:3306/shurikeygear?useUnicode=true&characterEncoding=UTF-8&useSSL=false&serverTimezone=Asia/Shanghai
+    driver-class-name: com.mysql.cj.jdbc.Driver
+#MVC配置
+  mvc:
+    view:
+      prefix: /WEB-INF/jsp/
+      suffix: .jsp
+#邮件配置
+  mail:
+    host: smtp.exmail.qq.com
+    port: 465
+    username: varmiloofficial@zhihaihe.cn
+    password: YwTQbEGK4KrT8vLDD
+    default-encoding: utf-8
+    properties:
+      mail:
+        smtp:
+          auth: true
+          socketFactory:
+            class: javax.net.ssl.SSLSocketFactory
+            fallback: false
+          ssl:
+            enable: true
+          connectiontimeout: 45000
+          timeout: 45000
+        debug: false
+#邮箱配置
+# MapperScan
+# sql映射文件位置
+mybatis-plus:
+  mapper-locations: classpath:/mapper/**/*.xml
+  global-config:
+    db-config:
+      id-type: auto
+server:
+  port: 8080
+
+
