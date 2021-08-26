@@ -12,10 +12,10 @@ spring:
       suffix: .jsp
 #邮件配置
   mail:
-    host: smtp.exmail.qq.com
+    host: smtp.xxx.qq.com
     port: 465
-    username: varmiloofficial@zhihaihe.cn
-    password: YwTQbEGK4KrT8vLDD
+    username: xxx@zhihaihe.cn
+    password: xxx
     default-encoding: utf-8
     properties:
       mail:
